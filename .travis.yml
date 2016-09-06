@@ -24,5 +24,6 @@ before_script:
 
 script:
   - bin/start-client &
-  - sleep 10
+  - sleep 20
+
 
