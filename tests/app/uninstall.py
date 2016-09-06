@@ -42,7 +42,7 @@ def test():
         
         if SHOW_TIME:
             start_time = datetime.utcnow()
-        package = PACKAGE + str(51 + i)
+        package = PACKAGE + str(50 + i)
         message = json.dumps({'op':'uninstall', 'uid':uid, 'package':package})
         ws = create_connection("ws://%s:%d/ws" % (get_manager(), get_port()))
         ws.send(message)

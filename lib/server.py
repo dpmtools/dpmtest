@@ -5,14 +5,13 @@
 #
 
 import zerorpc
-from conf.servers import SRV_ADDR
-from conf.dpmtest import CLI_PORT, SRV_PORT, CLIENTS, MODE
+from conf.dpmtest import CLI_PORT, CLIENTS, MODE
 
-class Coordinator(object):
+class Server(object):
     def __init__(self):
         self._cnt = 0
         self._addr = []
-        
+    
     def join(self, addr):
         self._cnt += 1
         self._addr.append(addr)
@@ -21,8 +20,3 @@ class Coordinator(object):
                 cli = zerorpc.Client()
                 cli.connect('tcp://%s:%d' % (i, CLI_PORT))
                 cli.start_test(MODE)
-
-if __name__ == '__main__':
-    s = zerorpc.Server(Coordinator())
-    s.bind("tcp://%s:%d" % (SRV_ADDR, SRV_PORT))
-    s.run()

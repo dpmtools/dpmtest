@@ -32,7 +32,7 @@ def test():
             return False
         login_cnt += 1
         log_debug('upload->login', 'login_cnt=%d' % login_cnt)
-        package = PACKAGE + str(51 + i)
+        package = PACKAGE + str(50 + i)
         if not upload(PATH, uid, package, VERSION, APP, key):
             log_err('upload', 'failed to upload app %s' % str(package))
             return False

@@ -29,7 +29,7 @@ def test():
         if RANDOM_PKG:
             cat_num = randint(0, len(CATEGORIES.keys()) - 1)
             cat_name = CATEGORIES.keys()[cat_num]
-            pkg_num = randint(40, PKG_NUM - 1)
+            pkg_num = randint(50, PKG_NUM)
             package = cat_name + '_' + PKG + str(pkg_num)
         else:
             package = PACKAGE + str(PKG_START + i)

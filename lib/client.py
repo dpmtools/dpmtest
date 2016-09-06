@@ -1,24 +1,16 @@
 #
-# Copyright (C) 2015 Xu Tian <tianxu@iscas.ac.cn>
+# Copyright (C) 2015  Xu Tian <tianxu@iscas.ac.cn>
 # Licensed under The MIT License (MIT)
 # http://opensource.org/licenses/MIT
 #
 
-import zerorpc
-import resource
 from lib import mode
 from lib.util import get_addr
 from threading import Thread
 from conf.servers import SRV_ADDR
 from conf.dpmtest import CLI_PORT, SRV_PORT
 
-def start_client():
-    cli = zerorpc.Client()
-    cli.connect('tcp://%s:%d' % (SRV_ADDR, SRV_PORT))
-    cli.join(get_addr())
-    cli.close()
-
-class Listener(Thread):
+class Client(Thread):
     def __init__(self):
         Thread.__init__(self)
         self.mode = None
@@ -62,12 +54,7 @@ class Listener(Thread):
             from tests.driver.upload import test
         elif self.mode == mode.DRV_INSTALL:
             from tests.driver.install import test
+        else:
+            raise Exception('invalid mode')
+        
         test()
-
-if __name__ == '__main__':
-    max_open_files_soft, max_open_files_hard = resource.getrlimit(resource.RLIMIT_NOFILE)
-    resource.setrlimit(resource.RLIMIT_NOFILE, (4096, max_open_files_hard))
-    s = zerorpc.Server(Listener())
-    Thread(target=start_client).start()
-    s.bind("tcp://%s:%d" % (get_addr(), CLI_PORT))
-    s.run()

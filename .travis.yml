@@ -1,0 +1,28 @@
+language: python
+
+python:
+  - '2.7'
+
+before_install:
+  - sudo ./install
+  - git clone -b unstable https://github.com/dpmtools/dpm
+  - sudo dpm/install -i
+  - sudo dpm/install -b
+  - sudo dpm/install -r
+  - sudo dpm/install -m
+  - sudo dpm/install
+
+services:
+  - mongodb
+
+before_script:
+  - sleep 5
+  - dpm/bin/dpm-start &
+  - sleep 20
+  - bin/start-server &
+  - sleep 5
+
+script:
+  - bin/start-client &
+  - sleep 10
+
