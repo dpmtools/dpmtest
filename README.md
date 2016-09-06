@@ -1,8 +1,8 @@
-# dpmtest
+# dpmtest [![Build Status](https://travis-ci.org/dpmtools/dpmtest.svg?branch=unstable)](https://travis-ci.org/dpmtools/dpmtest)
 For testing DPM
 
 ### Install
-* install
+* Run install
 
 ### Run
 * Server: bin/start-server
