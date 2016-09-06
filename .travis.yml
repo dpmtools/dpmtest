@@ -17,9 +17,9 @@ services:
 
 before_script:
   - sleep 5
-  - dpm/bin/dpm-start &
+  - sudo dpm/bin/dpm-start &
   - sleep 20
-  - bin/start-server &
+  - sudo bin/start-server &
   - sleep 5
 
 script:
