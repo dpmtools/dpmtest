@@ -4,13 +4,15 @@ python:
   - '2.7'
 
 before_install:
-  - sudo ./install
   - git clone -b unstable https://github.com/dpmtools/dpm
   - sudo dpm/install -i
   - sudo dpm/install -b
   - sudo dpm/install -r
   - sudo dpm/install -m
   - sudo dpm/install
+
+install:
+  - sudo ./install
 
 services:
   - mongodb
