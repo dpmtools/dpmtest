@@ -15,12 +15,12 @@ SRV_PORT = 4343
 FRONTEND_PORT = 9001
 MANAGER_PORTS = [10001]
 
-VERSION = '1.1.0'
+VERSION = '0.0.1'
 CATEGORY = '0'
-PACKAGE = 'cat0_bbb3'
-DRIVER_PACKAGE = 'driver4'
+PACKAGE = 'myapp'
+DRIVER_PACKAGE = 'mydriver'
 
-USER = 'user4'
+USER = 'user'
 PASSWORD = '123456'
 EMAIL = 'user@gmail.com'
 
