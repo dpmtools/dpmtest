@@ -5,10 +5,10 @@ For testing DPM
 * Run install
 
 ### Tools
-1. Start server:
+####1. Start server:
 * bin/start-server
 
-2. Start client:
+####2. Start client:
 * bin/start-client
 
 ### License
