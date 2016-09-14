@@ -6,3 +6,4 @@ pip install pytz
 pip install zerorpc
 pip install pyyaml
 pip install websocket-client
+pip install greenlet --upgrade
