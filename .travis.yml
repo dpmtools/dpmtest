@@ -25,7 +25,8 @@ before_script:
   - sleep 5
 
 script:
-  - bin/dpmtest-client &
+  - sudo bin/dpmtest-client &
   - sleep 20
 
-
+dist:
+  - xenial
