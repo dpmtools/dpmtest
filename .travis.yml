@@ -21,11 +21,11 @@ before_script:
   - sleep 5
   - sudo dpm/bin/dpm-start &
   - sleep 20
-  - sudo bin/start-server &
+  - sudo bin/dpmtest-server &
   - sleep 5
 
 script:
-  - bin/start-client &
+  - bin/dpmtest-client &
   - sleep 20
 
 
